@@ -93,8 +93,9 @@
 * **Storage Planning**
   Storage consumption was estimated based on VM sizes and GFS policies. The graphs below illustrate totals and per-VM splits. These are **only estimates**; real values may vary depending on data churn and deduplication.
 
-<img width="1779" height="1180" alt="image" src="https://github.com/user-attachments/assets/e747e279-dfa6-4da2-a63f-07a4d899b282" />
-<img width="2376" height="1380" alt="image" src="https://github.com/user-attachments/assets/d08cfac3-dc5c-41b1-8bfe-947020960e17" />
+<img width="1580" height="1180" alt="image" src="https://github.com/user-attachments/assets/a9a5f5c7-5327-4544-bea6-37e6b5c52f6a" />
+<img width="1976" height="1380" alt="image" src="https://github.com/user-attachments/assets/da1c06a7-52c1-403b-9b67-3ce6f0926311" />
+
 
 ## Capacity Overview
 Raw Storage Space Available from Compute Layer
