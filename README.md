@@ -33,4 +33,5 @@ The solution will use a **GFS (Grandfather–Father–Son)** retention policy, t
 - **Tests:** full VM restore, file‑level restore, camera‑clip restore (with screenshots and timings)
 - **Documentation:** runbooks, configuration snippets, topology/backup diagrams, lessons learned
 
-See `/01-Concept`, `/02-Implementation`, `/03-Tests`, `/04-Reflection`.
+See [01-Concept](/01-Concept), [02-Implementation](/02-Implementation), [03-Tests](/03-Tests), [04-Reflection](/04-Reflection).
+
