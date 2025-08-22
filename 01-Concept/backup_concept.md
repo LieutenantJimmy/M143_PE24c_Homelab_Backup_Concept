@@ -1,51 +1,45 @@
 # Backup Concept
 
 ## Objectives
-Ensure service continuity
 
-1. **Ensure service continuity**
+1. **Preserve critical data even if services fail**
 
-   * Maintain availability of critical infrastructure (AD, DNS, core VPS) even in case of VM corruption, accidental deletion, or host failure.
+   * Ensure that if a VM or service is lost (corruption, misconfiguration, accidental deletion), its state can be restored from backup.
+   * Service uptime depends on available hardware; backups guarantee the data survives until hardware is repaired.
 
-2. **Protect data consistency**
+2. **Meet module requirements for backup planning**
 
-   * Back up **paired services** (AD-1/AD-2, netvps-1/2) with identical RPO to avoid replication or directory drift.
+   * Define clear RPO and RTO per service tier (Critical, High, Low) and design backup schedules that align with these targets.
+   * Use a **GFS 5-1-1 retention policy** to provide daily, weekly, and monthly restore points as required in M143.
 
-3. **Minimize data loss**
+3. **Implement the 3-2-1 strategy within realistic limits**
 
-   * Define Recovery Point Objectives (RPO) per tier and configure backup frequency to meet them.
+   * **Onsite backup**: PBS datastore on the OptiPlex 1 TB HDD.
+   * **Second medium**: external 1 TB USB disk (future expansion).
+   * **Offsite copy**: optional cloud sync (AWS, GCP, Azure student credits).
+   * A full OptiPlex hardware failure means temporary downtime, but data remains intact for restore.
 
-4. **Enable rapid recovery**
+4. **Cover all workload types**
 
-   * Define Recovery Time Objectives (RTO) per tier and validate through restore testing that VMs/services can be recovered within target timeframes.
+   * Back up Proxmox VMs (Macmi-1/2), Hyper-V VMs (OptiPlex game servers), and unstructured camera recordings (SMB1 share).
+   * Ensure consistency between paired services (AD-1/AD-2, netvps-1/2).
 
-5. **Implement proven backup methodology**
+5. **Security and integrity**
 
-   * Use **GFS (Grandfather-Father-Son)** retention for efficient restore points.
-   * Target a **3-2-1 strategy** (onsite + offsite) to mitigate risks from hardware failure, human error, or disaster.
+   * Encrypt data in transit and at rest where supported (PBS, restic/cloud).
+   * Restrict SMB1 usage for cameras to an isolated, least-privilege share and mirror its data nightly.
 
-6. **Cover all workloads**
+6. **Prove recovery through testing**
 
-   * Back up **Proxmox VMs**, **Hyper-V VMs**, and **unstructured data** (camera recordings).
+   * Demonstrate full VM restore (e.g., Ubuntu test VM).
+   * Demonstrate file-level restore (e.g., Pi-hole config).
+   * Demonstrate unstructured restore (camera clip).
+   * Compare restore results to the defined RPO/RTO targets.
 
-7. **Secure and compliant backups**
+7. **Document and reflect**
 
-   * Ensure backups are encrypted in transit and at rest where applicable.
-   * Isolate SMB1 shares used by cameras and limit permissions.
-
-8. **Validate with restore tests**
-
-   * Perform and document full VM restores, file-level restores, and unstructured data restores to prove the concept.
-
-9. **Plan for capacity and growth**
-
-   * Estimate required storage capacity with different GFS scenarios and verify feasibility within 1 TB PBS datastore.
-
-10. **Provide documentation and runbooks**
-
-    * Create clear, reproducible guides for setup, restore, and maintenance in alignment with TBZ M143 competency matrix.
-
----
+   * Provide clear documentation, runbooks, and restore logs/screenshots for grading.
+   * Reflect on limitations (single host, scarce hardware) and propose improvements (extra USB disk, offsite cloud, later immutability).
 
 ## Tiers & Targets
 
