@@ -1,4 +1,5 @@
 # Test – Full VM Restore (Proxmox → PBS)
+**[⬅ Back to README](/README.md)**
 
 1. Pick `service-ubuntu-test` (or another safe VM).
 2. In PBS: verify latest backup snapshot exists.
