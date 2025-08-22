@@ -1,8 +1,8 @@
 # M143 Backup & Restore – Homelab Project
+![Project Status](https://img.shields.io/badge/Status-In%20Progress-orange) ![License](https://img.shields.io/badge/License-MIT-blue) ![Platform](https://img.shields.io/badge/Platform-HomeLab-yellow) ![Module](https://img.shields.io/badge/TBZ-M143-lightgrey)
 
 
 <img width="991" height="1008" alt="image" src="https://github.com/user-attachments/assets/79feadd1-96b4-48ce-beda-e2848448b386" />
-![Project Status](https://img.shields.io/badge/Status-In%20Progress-orange) ![License](https://img.shields.io/badge/License-MIT-blue) ![Platform](https://img.shields.io/badge/Platform-HomeLab-yellow) ![Module](https://img.shields.io/badge/TBZ-M143-lightgrey)
 
 **Use Case (real-world background)**  
 This project uses an existing homelab that is already in **production use**:
