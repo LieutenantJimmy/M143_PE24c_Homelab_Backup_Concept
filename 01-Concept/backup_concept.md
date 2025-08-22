@@ -1,5 +1,16 @@
 # Backup Concept
 
+```mermaid
+graph TD
+  A[Start] --> B[Step 1]
+  B --> C{Decision?}
+  C -->|Yes| D[Do this]
+  C -->|No| E[Do that]
+  D --> F[Finish]
+  E --> F[Finish]
+
+
+
 ## Objectives
 
 1. **Preserve critical data even if services fail**
