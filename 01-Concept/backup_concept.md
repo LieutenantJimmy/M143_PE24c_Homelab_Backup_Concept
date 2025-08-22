@@ -125,5 +125,5 @@ Raw Storage Requirements from Service Layer
 | **service-unturned-45**  | OptiPlex | Game Server (Unturned)             | Windows Server + SteamCMD | 48 GB     |
 
 ## Risks & Mitigations
-- **SMB1** required by Xiaomi cameras → isolate the share, least‑privilege user, mirror nightly to backup disk
-- Single‑disk PBS datastore → consider offsite/USB copy and (later) immutability
+- **SMB1** required by Xiaomi cameras → isolate the share, least‑privilege user
+- Single‑disk PBS datastore → consider offsite/USB copy
