@@ -28,20 +28,20 @@
    * Back up Proxmox VMs (Macmi-1/2), Hyper-V VMs (OptiPlex game servers), and camera recordings (SMB1 share).
    * Ensure consistency between paired services (AD-1/AD-2, netvps-1/2).
 
-5. Security and Integrity
+5. **Security and Integrity**
 
-* **Encryption for the cloud copy only**
+* Encryption for the cloud copy only
 
   * Offsite backups (AWS/GCP/Azure) will be handled with **restic**, which encrypts all data by default with AES-256.
   * This fulfills the module’s requirement to demonstrate encryption in a backup concept.
   * After the module, cloud + encryption can be disabled without affecting the local backup strategy.
 
-* **Local PBS datastore unencrypted**
+* Local PBS datastore unencrypted
 
   * Backups on the OptiPlex HDD remain unencrypted for simplicity and performance.
   * Since this is a trusted homelab environment, local encryption overhead is unnecessary.
 
-* **SMB1 camera data (special case)**
+* SMB1 camera data (special case)
 
   * SMB1 is required for Xiaomi cameras.
   * The share is restricted to a minimal, isolated account with least privileges.
