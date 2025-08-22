@@ -1,32 +1,34 @@
 # Backup Concept
+# Mermaid Cheatsheet (All Supported Types)
 
-# Mermaid Test
+---
 
-# Mermaid Gallery (GitHub-ready)
-
-## Flowchart
+## 1. Flowchart
 ```mermaid
 graph TD
-  A[Start] --> B{Backup type?}
-  B -->|Full| C[Write full]
-  B -->|Incremental| D[Write incremental]
-  C --> E[Verify]
+  A[Start] --> B{Decision?}
+  B -->|Yes| C[Do this]
+  B -->|No| D[Do that]
+  C --> E[Finish]
   D --> E
-  E --> F[Offsite copy]
 ```
 
-## Sequence
+---
+
+## 2. Sequence Diagram
 ```mermaid
 sequenceDiagram
   participant User
   participant Server
-  User->>Server: Start backup
-  Server-->>User: Status
-  Server->>Server: Snapshot VM
+  User->>Server: Request backup
+  Server-->>User: Acknowledge
+  Server->>Server: Run job
   Server-->>User: Done
 ```
 
-## Class
+---
+
+## 3. Class Diagram
 ```mermaid
 classDiagram
   class BackupJob {
@@ -38,24 +40,28 @@ classDiagram
     +path: string
     +capacityGB: number
   }
-  BackupJob --> Repository : writes to
+  BackupJob --> Repository : stores in
 ```
 
-## State
+---
+
+## 4. State Diagram
 ```mermaid
 stateDiagram-v2
   [*] --> Idle
-  Idle --> Running : schedule hit
+  Idle --> Running : start
   Running --> Verifying
-  Verifying --> [*] : ok
-  Running --> Failed : error
-  Failed --> Idle : retry
+  Verifying --> Idle : ok
+  Running --> Error : fail
+  Error --> Idle : reset
 ```
 
-## ER
+---
+
+## 5. Entity-Relationship (ER) Diagram
 ```mermaid
 erDiagram
-  VM ||--o{ BackupJob : has
+  VM ||--o{ BackupJob : creates
   Repository ||--o{ BackupJob : stores
   VM {
     string id
@@ -67,48 +73,61 @@ erDiagram
   }
 ```
 
-## Journey
+---
+
+## 6. Journey Diagram
 ```mermaid
 journey
-  title Backup Day
+  title Backup Workflow
   section Start
-    Kickoff: 3: Admin
-  section Processing
+    Initialize: 3: Admin
+  section Execution
     Snapshot: 2: Hypervisor
-    Copy to repo: 4: Storage
+    Transfer: 4: Storage
   section End
-    Verify & report: 5: Admin
+    Verify & Report: 5: Admin
 ```
 
-## Gantt
+---
+
+## 7. Gantt Chart
 ```mermaid
 gantt
   dateFormat  HH:mm
   axisFormat  %H:%M
-  title Nightly Window
+  title Backup Window
   section Jobs
   Full backup       :done,    00:00, 01:30
   Incrementals      :active,  01:30, 02:30
   Offsite sync      :         02:30, 03:30
 ```
 
-## Pie (safe on GitHub)
+---
+
+## 8. Pie Chart
 ```mermaid
 pie showData
-  title Repo usage by type
+  title Backup Types
   "Full" : 60
   "Incremental" : 35
   "Metadata" : 5
 ```
 
-## Column/Bar chart (may be experimental on GitHub)
+---
+
+## 9. New Chart (Experimental: Bar/Line/Area)
 ```mermaid
 chart
-  title: Storage (GB)
+  title: Backup Storage (GB)
   x-axis: 5-1-1, 5-2-1, 7-1-1, 7-2-1
   y-axis: GB
   bar: Estimated [720, 970, 740, 990]
+  line: Trend [700, 900, 750, 950]
 ```
+
+---
+
+
 
 
 ## Objectives
