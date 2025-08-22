@@ -56,7 +56,7 @@
 7. **Document and reflect**
 
    * Provide clear documentation, runbooks, and restore logs/screenshots for grading.
-   * Reflect on limitations (single host, scarce hardware) and propose improvements (extra USB disk, offsite cloud, later immutability).
+   * Reflect on limitations (scarce hardware) and propose improvements
 
 ## Tiers & Targets
 
