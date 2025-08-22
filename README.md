@@ -1,12 +1,13 @@
 # M143 Backup & Restore – Homelab Project
 
+<img width="1136" height="879" alt="image" src="https://github.com/user-attachments/assets/8a1d1584-361b-4c82-aeca-9cbf392c5ecd" />
+
+
 **Use Case (real-world background)**  
 This project uses an existing homelab that is already in **production use**:
 - A **Proxmox cluster** on two Mac mini servers (“Macmi‑1/2”) runs core infrastructure: **Active Directory**, DNS forwarders, internal/public reverse proxies, and internal/public VPS services.
 - A **Windows Server 2025 (OptiPlex)** host runs multiple **Hyper‑V** game servers and will also host a **Proxmox Backup Server (PBS)** VM with a **dedicated 1 TB HDD** for backup storage.
 - Edge devices include a **Raspberry Pi** (HomeAssistant) and **Xiaomi 2K Pro** cameras (which can write recordings to a Windows **SMB1** share).
-
-<img width="1136" height="879" alt="image" src="https://github.com/user-attachments/assets/1ed9581f-9459-4b29-b5f7-389838e8e3e4" />
 
 **Current situation / risk**  
 These services are already **in operation without any reliable backups**. A hardware failure, human error, or malware could cause prolonged downtime or data loss (e.g., losing AD, DNS, configuration, or game saves). The goal of this project is to design and implement a **real, working backup & restore system** and to document **tested restore procedures** to meet the TBZ M143 competency matrix.
