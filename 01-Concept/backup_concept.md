@@ -6,6 +6,12 @@
 ```mermaid
 info
 ```
+```plantuml
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+@enduml
+```
 
 
 ## 1. Flowchart
