@@ -117,7 +117,6 @@ Raw Storage Requirements from Service Layer
 | **service-pubvps-1**     | Macmi-1  | Public VPS (services)              | Ubuntu Server             | 24+128 GB |
 | **service-nginx-ext**    | Macmi-1  | Public Reverse Proxy               | Ubuntu Server             | 16 GB     |
 | **service-nginx-int**    | Macmi-1  | Internal Reverse Proxy             | Ubuntu Server             | 16 GB     |
-| **service-pve-bkup**     | OptiPlex | Proxmox Backup Server              | Proxmox VE VM             | 800 GB    |
 | **service-ubuntu-test**  | OptiPlex | Test VM                            | Ubuntu Server             | 28 GB     |
 | **service-scpsl-25**     | OptiPlex | Game Server (SCP:SL)               | Windows Server + SteamCMD | 48 GB     |
 | **service-beammp-30**    | OptiPlex | Game Server (BeamMP)               | Windows Server + SteamCMD | 48 GB     |
