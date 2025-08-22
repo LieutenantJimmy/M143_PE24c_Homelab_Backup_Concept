@@ -3,6 +3,11 @@
 
 ---
 
+```mermaid
+info
+```
+
+
 ## 1. Flowchart
 ```mermaid
 graph TD
