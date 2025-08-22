@@ -15,6 +15,14 @@ digraph G {
 }
 ```
 
+```d2
+app: MyApp
+db: Database
+
+app -> db: queries
+```
+
+
 
 
 ```plantuml
