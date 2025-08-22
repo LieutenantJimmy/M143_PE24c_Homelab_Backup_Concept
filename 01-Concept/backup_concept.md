@@ -96,8 +96,33 @@
 <img width="2376" height="1380" alt="image" src="https://github.com/user-attachments/assets/d08cfac3-dc5c-41b1-8bfe-947020960e17" />
 
 ## Capacity Overview
-- Raw VM total: see `/tables/vm_inventory.csv`
-- Scenario estimates: see `/tables/storage_estimates.csv`
+Raw Storage Space Available from Compute Layer
+
+| Hostname            | IP Address  | Role             | Hypervisor                    | CPU   | RAM   | Storage (OS/VMs)        | Extra Storage                           |
+| ------------------- | ----------- | ---------------- | ----------------------------- | ----- | ----- | ----------------------- | --------------------------------------- |
+| **SRV-OptiPlex-10** | 172.16.1.10 | Dedicated Server | Windows Server 2025 + Hyper-V | 8C/8T | 64 GB | 953 GB SSD              | 931 GB HDD (VM Backups / PBS datastore) |
+| **SRV-MACMI-1-51**  | 172.16.1.51 | Always-On Server | Proxmox VE 8.0                | 4C/8T | 8 GB  | 951 GB SSD              | 500 GB HDD                              |
+| **SRV-MACMI-2-52**  | 172.16.1.52 | Always-On Server | Proxmox VE 8.0                | 2C/4T | 4 GB  | 260 GB SSD              | —                                       |
+
+
+Raw Storage Requirements from Service Layer
+
+| VM Name                  | Host     | Role / Service                     | OS / Stack                | Disk Size |
+| ------------------------ | -------- | ---------------------------------- | ------------------------- | --------- |
+| **service-ad-1**         | Macmi-1  | Domain Controller + WSUS           | Windows Server            | 48 GB     |
+| **service-ad-2**         | Macmi-2  | Secondary DC                       | Windows Server            | 48 GB     |
+| **service-netvps-1**     | Macmi-1  | Private Net VPS (Pi-hole, CoreDNS) | Ubuntu Server             | 16 GB     |
+| **service-netvps-2**     | Macmi-2  | Secondary Net VPS                  | Ubuntu Server             | 16 GB     |
+| **service-pubvps-1**     | Macmi-1  | Public VPS (services)              | Ubuntu Server             | 128 GB    |
+| **service-nginx-ext**    | Macmi-1  | Public Reverse Proxy               | Ubuntu Server             | 16 GB     |
+| **service-nginx-int**    | Macmi-1  | Internal Reverse Proxy             | Ubuntu Server             | 16 GB     |
+| **service-pve-bkup**     | OptiPlex | Proxmox Backup Server              | Proxmox VE VM             | 300 GB    |
+| **service-ubuntu-test**  | OptiPlex | Test VM                            | Ubuntu Server             | 28 GB     |
+| **service-scpsl-25**     | OptiPlex | Game Server (SCP\:SL)              | Windows Server + SteamCMD | 48 GB     |
+| **service-beammp-30**    | OptiPlex | Game Server (BeamMP)               | Windows Server + SteamCMD | 48 GB     |
+| **service-zomboid-35**   | OptiPlex | Game Server (Project Zomboid)      | Windows Server + SteamCMD | 48 GB     |
+| **service-minecraft-40** | OptiPlex | Game Server (Minecraft)            | Windows Server + Java     | 48 GB     |
+| **service-unturned-45**  | OptiPlex | Game Server (Unturned)             | Windows Server + SteamCMD | 48 GB     |
 
 ## Risks & Mitigations
 - **SMB1** required by Xiaomi cameras → isolate the share, least‑privilege user, mirror nightly to backup disk
