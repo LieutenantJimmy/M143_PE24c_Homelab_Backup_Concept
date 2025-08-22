@@ -20,12 +20,12 @@
 
    * **Onsite backup**: PBS datastore on the OptiPlex 1 TB HDD.
    * **Second medium**: external 1 TB USB disk (future expansion).
-   * **Offsite copy**: optional cloud sync (AWS, GCP, Azure student credits).
+   * **Offsite copy**: optional cloud sync (AWS, GCP, Azure..).
    * A full OptiPlex hardware failure means temporary downtime, but data remains intact for restore.
 
 4. **Cover all workload types**
 
-   * Back up Proxmox VMs (Macmi-1/2), Hyper-V VMs (OptiPlex game servers), and unstructured camera recordings (SMB1 share).
+   * Back up Proxmox VMs (Macmi-1/2), Hyper-V VMs (OptiPlex game servers), and camera recordings (SMB1 share).
    * Ensure consistency between paired services (AD-1/AD-2, netvps-1/2).
 
 5. **Security and integrity**
