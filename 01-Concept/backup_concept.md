@@ -33,25 +33,24 @@
 * Encryption for the cloud copy only
 
   * Offsite backups (AWS/GCP/Azure) will be handled with [**restic**](https://github.com/restic/restic), which encrypts all data by default with AES-256.
-  * This fulfills the module’s requirement to demonstrate encryption in a backup concept.
   * After the module, cloud + encryption can be disabled without affecting the local backup strategy.
 
 * Local PBS datastore unencrypted
 
-  * Backups on the OptiPlex HDD remain unencrypted for simplicity and performance.
-  * Since this is a trusted homelab environment, local encryption overhead is unnecessary.
+  * Backups on the OptiPlex HDD remain unencrypted for simplicity.
+  * Since this is a trusted homelab environment, local encryption overhead is unnecessary, especially due to the low value data within the backed-up materials.
 
 * SMB1 camera data (special case)
 
   * SMB1 is required for Xiaomi cameras.
   * The share is restricted to a minimal, isolated account with least privileges.
-  * Data is mirrored nightly into the PBS dataset to integrate it into the overall backup flow.
 
 6. **Prove recovery through testing**
 
    * Demonstrate full VM restore (e.g., Ubuntu test VM).
    * Demonstrate file-level restore (e.g., Pi-hole config).
    * Demonstrate unstructured restore (camera clip).
+     * Camera clip restore does not reintegrate into the Xiaomi app, but recovery is demonstrated by locating and playing back a recording file from the backup dataset.
    * Compare restore results to the defined RPO/RTO targets.
 
 7. **Document and reflect**
