@@ -12,8 +12,8 @@
    * Define clear RPO and RTO per service tier (Critical, High, Medium, Low) and design backup schedules that align with these targets.
    * Use a **GFS 5-1-1 retention policy** to provide daily, weekly, and monthly restore points as required in M143.
 
-Note: RPO = Recovery Point Objective (max data loss)
-RTO = Recovery Time Objective (max downtime)
+  Note: RPO = Recovery Point Objective (max data loss)
+    RTO = Recovery Time Objective (max downtime)
 
 
 3. **Implement the 3-2-1 strategy within realistic limits**
