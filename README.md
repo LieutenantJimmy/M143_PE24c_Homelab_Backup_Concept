@@ -1,6 +1,6 @@
 # M143 Backup & Restore – Homelab Project
 
-<img width="965" height="1036" alt="image" src="https://github.com/user-attachments/assets/4f1795f2-b55c-48ca-8d78-e3fc9a257666" />
+<img width="995" height="1004" alt="image" src="https://github.com/user-attachments/assets/242f8ff5-f7f2-48fe-bef2-f6ffd1e100c5" />
 
 **Use Case (real-world background)**  
 This project uses an existing homelab that is already in **production use**:
