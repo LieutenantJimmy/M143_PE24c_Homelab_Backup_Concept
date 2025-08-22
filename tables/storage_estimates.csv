@@ -1,0 +1,4 @@
+scenario,estimated_needed_GB,fits_in_1TB
+"GFS 5-1-1 (5 daily inc, 1 weekly full, 1 monthly full)",732.7,True
+"GFS 7-4-3 (7 daily inc, 4 weekly, 3 monthly)",2457.2,False
+"GFS 7-4-12 (7 daily inc, 4 weekly, 12 monthly)",5524.4,False

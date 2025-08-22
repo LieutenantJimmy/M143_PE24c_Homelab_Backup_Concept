@@ -1,0 +1,7 @@
+# Test – Camera Clip Restore
+
+1. Identify a test clip in `D:\Cameras\...`.
+2. Delete it; confirm missing.
+3. Restore from `D:\camera-backup`.
+4. Play it; confirm integrity.
+5. Attach screenshots and state elapsed time.

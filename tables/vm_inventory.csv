@@ -1,0 +1,15 @@
+host,vm,role,size_gb,tier
+Macmi-1,service-ad-1,AD DS / DNS / WDS,48,Gold
+Macmi-1,service-netvps-1,"Private VPS (Pi-hole, UpSnap, misc)",16,Silver
+Macmi-1,service-pubvps-1 (OS),Public VPS (RxResume/Ollama etc.) OS disk,24,Silver
+Macmi-1,service-pubvps-1 (data),Public VPS data disk,128,Silver
+Macmi-1,service-nginx-ext,External reverse proxy,16,Silver
+Macmi-1,service-nginx-int,Internal reverse proxy,16,Silver
+Macmi-2,service-ad-2,AD DS / DNS secondary,48,Gold
+Macmi-2,service-netvps-2,Private VPS secondary (Pi-hole/UpSnap),16,Silver
+OptiPlex,service-scpsl-25,Game server (SCP:SL),48,Bronze
+OptiPlex,service-beammp-30,Game server (BeamMP),48,Bronze
+OptiPlex,service-zomboid-35,Game server (Project Zomboid),48,Bronze
+OptiPlex,service-minecraft-40,Game server (Minecraft),48,Bronze
+OptiPlex,service-unturned-45,Game server (Unturned),48,Bronze
+OptiPlex,service-ubuntu-test,Ubuntu test VM,16,Bronze
