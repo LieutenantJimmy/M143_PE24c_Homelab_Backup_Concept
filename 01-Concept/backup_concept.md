@@ -10,7 +10,6 @@ graph TD
   E --> F[Finish]
 
 
-
 ## Objectives
 
 1. **Preserve critical data even if services fail**
