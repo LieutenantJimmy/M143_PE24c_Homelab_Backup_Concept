@@ -66,11 +66,11 @@
 | **netvps-1**                                                 | **Critical**  | Pi-hole, DNS forwarder, internal services | 6h                  | 1–2h               |
 | **AD-2**                                                     | Medium        | Secondary AD (consistency with AD-1)      | 6h                  | 48h                |
 | **netvps-2**                                                 | Medium        | Secondary DNS forwarder (consistency)     | 6h                  | 48h                |
-| **Game servers** (SCP, BeamMP, Zomboid, Minecraft, Unturned) | High          | Must be available for players             | 24h                 | 1–2h               |
-| **Public proxy (nginx-ext)**                                 | High          | External access / entry point             | 24h                 | 24h                |
-| **Public VPS (pubvps-1)**                                    | High          | Hosts public apps (RxResume, Ollama)      | 24h                 | 24h                |
-| **Internal proxy (nginx-int)**                               | Low           | Only used internally, non-critical        | 24h                 | 48h                |
-| **Ubuntu test VM**                                           | Low           | School sandbox / dev                      | 24h                 | 48h                |
+| **Game servers** (SCP, BeamMP, Zomboid, Minecraft, Unturned) | High          | Must be available for friends             | 24h                 | 1–2h               |
+| **Public proxy (nginx-ext)**                                 | High          | Router for Public Services                | 24h                 | 24h                |
+| **Public VPS (pubvps-1)**                                    | High          | Hosts public apps (It-Tools, OpenWebUI..) | 24h                 | 24h                |
+| **Internal proxy (nginx-int)**                               | Low           | Only used internally, not even operational| 24h                 | 48h                |
+| **Ubuntu test VM**                                           | Low           | School sandbox / dev / General Purpose    | 24h                 | 48h                |
 
 
 ## Strategy
