@@ -96,7 +96,6 @@
 <img width="1580" height="1180" alt="image" src="https://github.com/user-attachments/assets/a9a5f5c7-5327-4544-bea6-37e6b5c52f6a" />
 <img width="1976" height="1380" alt="image" src="https://github.com/user-attachments/assets/da1c06a7-52c1-403b-9b67-3ce6f0926311" />
 
-
 ## Capacity Overview
 Raw Storage Space Available from Compute Layer
 
