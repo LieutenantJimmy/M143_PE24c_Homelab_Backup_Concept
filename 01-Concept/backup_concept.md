@@ -1,9 +1,51 @@
 # Backup Concept
 
 ## Objectives
-- Protect **all productive VMs** and **camera recordings**
-- Prove **working restore procedures** (full VM + single file)
-- Document according to TBZ M143 (competency bands A1–E2)
+Ensure service continuity
+
+1. **Ensure service continuity**
+
+   * Maintain availability of critical infrastructure (AD, DNS, core VPS) even in case of VM corruption, accidental deletion, or host failure.
+
+2. **Protect data consistency**
+
+   * Back up **paired services** (AD-1/AD-2, netvps-1/2) with identical RPO to avoid replication or directory drift.
+
+3. **Minimize data loss**
+
+   * Define Recovery Point Objectives (RPO) per tier and configure backup frequency to meet them.
+
+4. **Enable rapid recovery**
+
+   * Define Recovery Time Objectives (RTO) per tier and validate through restore testing that VMs/services can be recovered within target timeframes.
+
+5. **Implement proven backup methodology**
+
+   * Use **GFS (Grandfather-Father-Son)** retention for efficient restore points.
+   * Target a **3-2-1 strategy** (onsite + offsite) to mitigate risks from hardware failure, human error, or disaster.
+
+6. **Cover all workloads**
+
+   * Back up **Proxmox VMs**, **Hyper-V VMs**, and **unstructured data** (camera recordings).
+
+7. **Secure and compliant backups**
+
+   * Ensure backups are encrypted in transit and at rest where applicable.
+   * Isolate SMB1 shares used by cameras and limit permissions.
+
+8. **Validate with restore tests**
+
+   * Perform and document full VM restores, file-level restores, and unstructured data restores to prove the concept.
+
+9. **Plan for capacity and growth**
+
+   * Estimate required storage capacity with different GFS scenarios and verify feasibility within 1 TB PBS datastore.
+
+10. **Provide documentation and runbooks**
+
+    * Create clear, reproducible guides for setup, restore, and maintenance in alignment with TBZ M143 competency matrix.
+
+---
 
 ## Tiers & Targets
 
