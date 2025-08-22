@@ -25,7 +25,7 @@ The solution will use a **GFS (Grandfather–Father–Son)** retention policy, t
 - **Macmi‑1** (Proxmox 8): AD‑1, netvps‑1, pubvps‑1 (OS+data), nginx‑ext, nginx‑int  
 - **Macmi‑2** (Proxmox 8): AD‑2, netvps‑2 (redundant core services)  
 - **OptiPlex** (Windows Server 2025 + Hyper‑V): game server VMs, **PBS VM** (backup target on **1 TB HDD**)  
-- **Edge:** Raspberry Pi (HomeAssistant), Xiaomi 2K Pro cameras (SMB1 recording share)
+- **Edge:** Xiaomi 2K Pro cameras (SMB1 recording share)
 
 ## Deliverables (aligned with TBZ M143)
 - **Concept:** GFS 5‑1‑1 baseline, 3‑2‑1, RPO/RTO per tier, capacity planning
