@@ -5,7 +5,7 @@
 1. **Preserve critical data even if services fail**
 
    * Ensure that if a VM or service is lost (corruption, misconfiguration, accidental deletion), its state can be restored from backup.
-   * Service uptime depends on available hardware; backups guarantee the data survives until hardware is repaired.
+   * Service uptime depends on available hardware; backups guarantee the data survives until hardware is repaired or replaced.
 
 2. **Meet module requirements for backup planning**
 
