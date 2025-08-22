@@ -77,6 +77,11 @@
 - **Primary backup**: **Proxmox Backup Server (PBS)** VM on OptiPlex; datastore on the **1 TB HDD**
 - **Retention (baseline)**: **GFS 5‑1‑1** → 5 daily incrementals, 1 weekly full, 1 monthly full
 - **Alternative profiles**: 7-1-1, 5-2-1, 7-2-1 (depending on capacity)
+
+<img width="1779" height="1180" alt="image" src="https://github.com/user-attachments/assets/e747e279-dfa6-4da2-a63f-07a4d899b282" />
+<img width="2376" height="1380" alt="image" src="https://github.com/user-attachments/assets/d08cfac3-dc5c-41b1-8bfe-947020960e17" />
+
+
 - **3‑2‑1**: 3 copies (production + PBS + optional USB/cloud), 2 media types, 1 offsite (future extension)
 
 ## Capacity Overview
