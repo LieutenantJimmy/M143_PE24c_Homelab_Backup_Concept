@@ -2,14 +2,112 @@
 
 # Mermaid Test
 
+# Mermaid Gallery (GitHub-ready)
+
+## Flowchart
 ```mermaid
 graph TD
-  A[Start] --> B[Step 1]
-  B --> C{Decision?}
-  C -->|Yes| D[Do this]
-  C -->|No| E[Do that]
-  D --> F[Finish]
-  E --> F[Finish]
+  A[Start] --> B{Backup type?}
+  B -->|Full| C[Write full]
+  B -->|Incremental| D[Write incremental]
+  C --> E[Verify]
+  D --> E
+  E --> F[Offsite copy]
+```
+
+## Sequence
+```mermaid
+sequenceDiagram
+  participant User
+  participant Server
+  User->>Server: Start backup
+  Server-->>User: Status
+  Server->>Server: Snapshot VM
+  Server-->>User: Done
+```
+
+## Class
+```mermaid
+classDiagram
+  class BackupJob {
+    +id: string
+    +type: Full|Incremental
+    +run(): void
+  }
+  class Repository {
+    +path: string
+    +capacityGB: number
+  }
+  BackupJob --> Repository : writes to
+```
+
+## State
+```mermaid
+stateDiagram-v2
+  [*] --> Idle
+  Idle --> Running : schedule hit
+  Running --> Verifying
+  Verifying --> [*] : ok
+  Running --> Failed : error
+  Failed --> Idle : retry
+```
+
+## ER
+```mermaid
+erDiagram
+  VM ||--o{ BackupJob : has
+  Repository ||--o{ BackupJob : stores
+  VM {
+    string id
+    string name
+  }
+  Repository {
+    string path
+    int capacityGB
+  }
+```
+
+## Journey
+```mermaid
+journey
+  title Backup Day
+  section Start
+    Kickoff: 3: Admin
+  section Processing
+    Snapshot: 2: Hypervisor
+    Copy to repo: 4: Storage
+  section End
+    Verify & report: 5: Admin
+```
+
+## Gantt
+```mermaid
+gantt
+  dateFormat  HH:mm
+  axisFormat  %H:%M
+  title Nightly Window
+  section Jobs
+  Full backup       :done,    00:00, 01:30
+  Incrementals      :active,  01:30, 02:30
+  Offsite sync      :         02:30, 03:30
+```
+
+## Pie (safe on GitHub)
+```mermaid
+pie showData
+  title Repo usage by type
+  "Full" : 60
+  "Incremental" : 35
+  "Metadata" : 5
+```
+
+## Column/Bar chart (may be experimental on GitHub)
+```mermaid
+chart
+  title: Storage (GB)
+  x-axis: 5-1-1, 5-2-1, 7-1-1, 7-2-1
+  y-axis: GB
+  bar: Estimated [720, 970, 740, 990]
 ```
 
 
