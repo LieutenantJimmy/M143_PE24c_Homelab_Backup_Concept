@@ -1,0 +1,19 @@
+# Camera Data Backup (Xiaomi 2K Pro via SMB1)
+
+## Primary Storage
+- Enable **SMB1** feature on Windows Server (Feature on Demand).
+- Create share: `D:\Cameras` → `\\srv-optiplex-10\cameras` with a least-privilege user.
+- Cameras write files there.
+
+## Backup Job (robocopy nightly)
+```powershell
+$src = "D:\Cameras"
+$dst = "D:\camera-backup"
+robocopy $src $dst /MIR /R:1 /W:1 /FFT /Z /XA:H /XJ /NP /LOG+:C:\logs\cameras_robocopy.log
+```
+Schedule via **Task Scheduler** at 02:00 daily.
+
+## Restore Test
+- Delete a known clip from `$src`.
+- Restore from `$dst` and verify playback.
+- Screenshot before/after into `/03-Tests/camera-restore.md`.
