@@ -6,6 +6,17 @@
 ```mermaid
 info
 ```
+
+
+```dot
+digraph G {
+  A -> B -> C;
+  B -> D;
+}
+```
+
+
+
 ```plantuml
 @startuml
 Alice -> Bob: Authentication Request
