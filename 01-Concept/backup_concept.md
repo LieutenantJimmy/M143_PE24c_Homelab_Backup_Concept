@@ -72,17 +72,28 @@
 | **Internal proxy (nginx-int)**                               | Low           | Only used internally, not even operational| 24h                 | 48h                |
 | **Ubuntu test VM**                                           | Low           | School sandbox / dev / General Purpose    | 24h                 | 48h                |
 
-
 ## Strategy
-- **Primary backup**: **Proxmox Backup Server (PBS)** VM on OptiPlex; datastore on the **1 TB HDD**
-- **Retention (baseline)**: **GFS 5‑1‑1** → 5 daily incrementals, 1 weekly full, 1 monthly full
-- **Alternative profiles**: 7-1-1, 5-2-1, 7-2-1 (depending on capacity)
+
+* **Proxmox VMs (Macmi-1/2)**
+  Backups will be handled by **Proxmox Backup Server (PBS)** running on the OptiPlex, following the **7-1-1 GFS principle** (7 daily, 1 weekly, 1 monthly). This policy was chosen after evaluating multiple variants (5-1-1, 5-2-1, 7-1-1, 7-2-1) in the storage estimation graphs. The **7-1-1** scheme provides a solid balance of retention and storage efficiency, totaling an estimated **\~740 GB** of usage, leaving some margin below the 1 TB disk capacity.
+
+* **Hyper-V VMs (OptiPlex)**
+  These will not be integrated into PBS but instead exported to the **same HDD** as the PBS datastore. Practically, this means a folder on the OptiPlex drive containing Hyper-V VM `.vhdx` files next to PBS data. They are included in the GFS calculations (see graphs).
+
+* **Camera Recordings (Xiaomi 2K Pro)**
+  Due to throughput concerns, raw camera recordings will be written to the **SSD of the OptiPlex** instead of the PBS HDD. This avoids bottlenecks for VM backups, given the tight storage margin. At this stage, they will remain on a **single medium only** (no mirroring or offload).
+
+* **Encryption**
+  Local encryption is explicitly **not applied**. For the purposes of the TBZ project, only the **cloud copy** will be encrypted. We will use **Restic** (a deduplicating backup tool with built-in encryption) to send PBS, Hyper-V, and camera data into an external cloud (AWS, GCP, or Azure credits). This encryption + cloud upload will be **disabled after the project** to avoid uneccesarry costs.
+
+* **Redundancy (3-2-1)**
+  To strengthen against a single HDD failure, we will add a **second 1 TB USB hard drive** to hold clones of all VM backups (PBS + Hyper-V). This fulfills the **3-2-1 principle** (3 copies, 2 different media, 1 offsite). Camera recordings remain excluded from 3-2-1 at this stage.
+
+* **Storage Planning**
+  Storage consumption was estimated based on VM sizes and GFS policies. The graphs below illustrate totals and per-VM splits. These are **only estimates**; real values may vary depending on data churn and deduplication.
 
 <img width="1779" height="1180" alt="image" src="https://github.com/user-attachments/assets/e747e279-dfa6-4da2-a63f-07a4d899b282" />
 <img width="2376" height="1380" alt="image" src="https://github.com/user-attachments/assets/d08cfac3-dc5c-41b1-8bfe-947020960e17" />
-
-
-- **3‑2‑1**: 3 copies (production + PBS + optional USB/cloud), 2 media types, 1 offsite (future extension)
 
 ## Capacity Overview
 - Raw VM total: see `/tables/vm_inventory.csv`
