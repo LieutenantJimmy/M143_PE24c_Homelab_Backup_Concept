@@ -111,14 +111,14 @@ Raw Storage Requirements from Service Layer
 | ------------------------ | -------- | ---------------------------------- | ------------------------- | --------- |
 | **service-ad-1**         | Macmi-1  | Domain Controller + WSUS           | Windows Server            | 48 GB     |
 | **service-ad-2**         | Macmi-2  | Secondary DC                       | Windows Server            | 48 GB     |
-| **service-netvps-1**     | Macmi-1  | Private Net VPS (Pi-hole, CoreDNS) | Ubuntu Server             | 16 GB     |
+| **service-netvps-1**     | Macmi-1  | Private Net VPS (Pi-hole, UpSnap)  | Ubuntu Server             | 16 GB     |
 | **service-netvps-2**     | Macmi-2  | Secondary Net VPS                  | Ubuntu Server             | 16 GB     |
 | **service-pubvps-1**     | Macmi-1  | Public VPS (services)              | Ubuntu Server             | 24+128 GB |
 | **service-nginx-ext**    | Macmi-1  | Public Reverse Proxy               | Ubuntu Server             | 16 GB     |
 | **service-nginx-int**    | Macmi-1  | Internal Reverse Proxy             | Ubuntu Server             | 16 GB     |
 | **service-pve-bkup**     | OptiPlex | Proxmox Backup Server              | Proxmox VE VM             | 800 GB    |
 | **service-ubuntu-test**  | OptiPlex | Test VM                            | Ubuntu Server             | 28 GB     |
-| **service-scpsl-25**     | OptiPlex | Game Server (SCP\:SL)              | Windows Server + SteamCMD | 48 GB     |
+| **service-scpsl-25**     | OptiPlex | Game Server (SCP:SL)               | Windows Server + SteamCMD | 48 GB     |
 | **service-beammp-30**    | OptiPlex | Game Server (BeamMP)               | Windows Server + SteamCMD | 48 GB     |
 | **service-zomboid-35**   | OptiPlex | Game Server (Project Zomboid)      | Windows Server + SteamCMD | 48 GB     |
 | **service-minecraft-40** | OptiPlex | Game Server (Minecraft)            | Windows Server + Java     | 48 GB     |
