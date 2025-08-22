@@ -32,7 +32,7 @@
 
 * Encryption for the cloud copy only
 
-  * Offsite backups (AWS/GCP/Azure) will be handled with **restic**, which encrypts all data by default with AES-256.
+  * Offsite backups (AWS/GCP/Azure) will be handled with [**restic**](https://github.com/restic/restic), which encrypts all data by default with AES-256.
   * This fulfills the module’s requirement to demonstrate encryption in a backup concept.
   * After the module, cloud + encryption can be disabled without affecting the local backup strategy.
 
