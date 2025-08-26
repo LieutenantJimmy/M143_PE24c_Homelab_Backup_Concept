@@ -85,7 +85,10 @@
   Due to throughput concerns, raw camera recordings will be written to the **SSD of the OptiPlex** instead of the PBS HDD. This avoids bottlenecks for VM backups, given the tight storage margin. At this stage, they will remain on a **single medium only** (no mirroring or offload).
 
 * **Encryption**
-  Local encryption is explicitly **not applied**. For the purposes of the TBZ project, only the **cloud copy** will be encrypted. We will use **Restic** (a deduplicating backup tool with built-in encryption) to send PBS, Hyper-V, and camera data into an external cloud (AWS, GCP, or Azure credits). This encryption + cloud upload will be **disabled after the project** to avoid uneccesarry costs.
+
+  * **In transit**: All communication between Proxmox VE nodes and PBS is protected by **TLS**, which is built into Proxmox. This ensures that backup traffic cannot be intercepted or altered while moving across the network.
+  * **At rest**: The **PBS datastore itself is encrypted** using its built-in optional encryption feature. This guarantees that backup data stored on the HDD remains confidential and cannot be accessed if the disk is removed or compromised.
+  * **Cloud Backup**: Cloud offloading (AWS, GCP, Azure) we'll do with **restic**, data will be encrypted again by default (AES-256).
 
 * **Redundancy (3-2-1)**
   To strengthen against a single HDD failure, we will add a **second 1 TB USB hard drive** to hold clones of all VM backups (PBS + Hyper-V). This fulfills the **3-2-1 principle** (3 copies, 2 different media, 1 offsite). Camera recordings remain excluded from 3-2-1 at this stage.
