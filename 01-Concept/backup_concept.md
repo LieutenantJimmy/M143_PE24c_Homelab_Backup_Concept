@@ -63,15 +63,13 @@
 
 | VM/Service                                                   | Priority Tier | Reason / Role                             | RPO (Max Data Loss) | RTO (Max Downtime) |
 | ------------------------------------------------------------ | ------------- | ----------------------------------------- | ------------------- | ------------------ |
-| **AD-1**                                                     | **Critical**  | Primary Active Directory / DNS root       | 6h                  | 1–2h               |
-| **netvps-1**                                                 | **Critical**  | Pi-hole, DNS forwarder, internal services | 6h                  | 1–2h               |
-| **AD-2**                                                     | Medium        | Secondary AD (consistency with AD-1)      | 6h                  | 48h                |
-| **netvps-2**                                                 | Medium        | Secondary DNS forwarder (consistency)     | 6h                  | 48h                |
+| **AD-1**                                                     | **Critical**  | Primary Active Directory / DNS root       | 24h                 | 1–2h               |
+| **netvps-1**                                                 | **Critical**  | Pi-hole, DNS forwarder, internal services | 24h                 | 1–2h               |
+| **AD-2**                                                     | Medium        | Secondary AD (consistency with AD-1)      | 24h                 | 48h                |
 | **Game servers** (SCP, BeamMP, Zomboid, Minecraft, Unturned) | High          | Must be available for friends             | 24h                 | 1–2h               |
-| **Public proxy (nginx-ext)**                                 | High          | Router for Public Services                | 24h                 | 24h                |
-| **Public VPS (pubvps-1)**                                    | High          | Hosts public apps (It-Tools, OpenWebUI..) | 24h                 | 24h                |
-| **Internal proxy (nginx-int)**                               | Low           | Only used internally, not even operational| 24h                 | 48h                |
-| **Ubuntu test VM**                                           | Low           | School sandbox / dev / General Purpose    | 24h                 | 48h                |
+| **Public proxy (nginx)**                                     | High          | Router for Public Services                | 24h                 | 24h                |
+| **Containers (n8n, it-tools, openwebui)**                    | Low           | Lightweight apps, easy to redeploy        | 24h                 | 48h                |
+
 
 ## Strategy
 
