@@ -10,6 +10,8 @@ In this section, the focus is on conducting a **backup and restore cycle** of a 
 
 ---
 
+<img width="809" height="605" alt="image" src="https://github.com/user-attachments/assets/c0e4cd95-30a0-4973-b822-443ec569caae" />
+
 As a prerequisite, **RTO and RPO targets** were already defined, and a **7-1-1 retention scheme** (7 daily, 1 weekly, 1 monthly) was implemented. The following steps demonstrate the first test run.
 
 ![alt text](image-3.png)
