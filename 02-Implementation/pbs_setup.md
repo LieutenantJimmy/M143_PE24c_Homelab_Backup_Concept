@@ -43,14 +43,15 @@ Following an upgrade (`apt update && apt dist-upgrade`) to **version 8.4.13**, t
 With the system updated, a file-level recovery test was carried out using the personal Domain Controller VM. For this purpose, an image of a hamster was saved in the Pictures folder, which was then targeted for restoration.
 
 ![alt text](image-10.png)
+![alt text](image-11.png)
 
 The Proxmox Web UI made it possible to browse the backup snapshot, locate the file, and prepare it for recovery.
 
-![alt text](image-11.png)
-
-The file was successfully extracted from the backup and restored to its original location, verifying that file-level recovery works as intended.
-
 ![alt text](image-12.png)
+
+The file was successfully extracted from the backup and restored to, verifying that file-level recovery works as intended.
+
+![alt text](image-13.png)
 
 The restored hamster image confirmed the success of the procedure.
 
