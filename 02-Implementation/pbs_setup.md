@@ -60,3 +60,22 @@ The file was successfully extracted from the backup and restored to, verifying t
 ![alt text](image-13.png)
 
 The restored hamster image confirmed the success of the procedure.
+
+---
+
+![alt text](image-15.png)
+
+To comply with the **3-2-1 backup strategy**, specifically the *two media* requirement, I extended the Proxmox Backup Server (PBS) with an additional storage medium.
+
+For this purpose, a **1 TB HDD** was physically attached to the host server, and an additional **512 GB virtual disk (.vhdx)** was assigned to the PBS VM. This resulted in two independent datastores of equal size (512 GB each).
+
+After preparing the disks with `lsblk` and mounting them appropriately, the setup was as follows:
+
+![alt text](image-17.png)
+![alt text](image-16.png)
+
+Both datastores were then integrated into PBS. A **Local Sync Job** was created to replicate the contents of **Datastore1** onto **Datastore2**. The job configuration ensures that the target datastore remains synchronized and that notifications are sent via email upon successful completion or in case of errors.
+
+![alt text](image-18.png)
+
+With this, regular synchronization of the two datastores was established, providing redundancy on separate media and fulfilling the second element of the 3-2-1 principle.
