@@ -1,58 +1,57 @@
 **[⬅ Back to README](/README.md)**
 
-# Implementierung – Proxmox Backup Server (PBS) on Hyper‑V
+# Implementierung – Proxmox Backup Server (PBS) on Hyper-V
 
 ![alt text](image-1.png)
 
-Okay so we've got our Proxmox cluster consisting of two mac-mini nodes.
+Our Proxmox cluster consists of two Mac Mini nodes. Together, they host the service stack, which includes a mix of small convenience services, experimental applications, and self-hosted services exposed via my website **giotech.ch**.
 
-togehter, they run our service stack, which is for the most part little services i use at home for convenience, random apps i'm looking into or experimenting with or some self-hosted service i provide access too via my website giotech.ch
+In this section, the focus is on conducting a **backup and restore cycle** of a single VM in Proxmox. The goal is to validate the functionality of the backup system and confirm that both full VM and file-level restores work as expected.
 
-Today we'll focus on performing a proper backup & restore cycle with a singular VM using Proxmox, purely to test it's functionality.
+---
 
-As of right now we've already calculated RTO and RPO targets.. already implemented a backup scheme following the 7-1-1 principle.. so here's the first test.
+As a prerequisite, **RTO and RPO targets** were already defined, and a **7-1-1 retention scheme** (7 daily, 1 weekly, 1 monthly) was implemented. The following steps demonstrate the first test run.
 
 ![alt text](image-3.png)
 
-in terms of tools we're relying on a 100% Proxmox ecosystem for now, we'll get to explore more tools later on when backing up Hyper-V VMs.
+For now, the setup relies entirely on the **Proxmox ecosystem**. Additional tools and procedures will be explored later when integrating Hyper-V workloads.
 
-For now we'll be making a backup of service-netvps-1 with but before we do, we'll do a modification that we'll reverse shortly after.
+For this test, the VM **service-netvps-1** was selected. Before creating the backup, a modification was made inside the VM to later verify the restore process.
 
 ![alt text](image-4.png)
 
-within one of my services in netvps-1 (uses CasaOS & Docker so it runs multiple services within it) i changed the name of a item to this. Then shut down the machine, and performed a backup using Proxmox'x built in backup feature, though i backed up onto the PBS on Hyper-V.
+Inside one of the services hosted on netvps-1 (running CasaOS & Docker), the name of an item was intentionally changed. After applying this modification, the VM was shut down, and a backup was performed using Proxmox’s integrated backup functionality, with the target set to PBS running on Hyper-V.
 
 ![alt text](image-5.png)
 
-The way i set this up, it not only has TLS (Transit Encryption) but also stores the files in an Encrypted manner on PBS.
+The configuration ensures that backups are protected with **TLS encryption during transit**, and that the files are also **stored in encrypted form** on PBS.
 
 ![alt text](image-7.png)
 
-As the backup finished, i continued to restore the VM, i was required to delete the previous one to avoid duplicates from a network perspective, but pretty much worked out of the box.
+Once the backup completed, the VM was restored. To avoid duplicate conflicts on the network, the original VM had to be deleted before performing the restore. Aside from this step, the process was seamless and functioned as intended.
 
 ![alt text](image-8.png)
 
+---
 
-Now that we tested full VM retore, we'll dedicated to the file restore thankfully proxmox also has this built in and handles it for me. Sadly i had to note that my cluster was on version 8.4.0 which had a bug which made the file restore.. unresponsive.
+After confirming that a **full VM restore** worked, the next objective was to test **file-level recovery**. Proxmox provides this functionality natively, though an issue arose during the first attempt: on version **8.4.0**, the file restore feature was unresponsive due to a known bug.
 
 ![alt text](image-9.png)
 
-after a quick apt update && apt dist-upgrade we were back in the game with version 8.4.13 (i slept over some updates)
+Following an upgrade (`apt update && apt dist-upgrade`) to **version 8.4.13**, the issue was resolved.
 
-
-After that i setup a quick test on my personal Domain Controller:
+With the system updated, a file-level recovery test was carried out using the personal Domain Controller VM. For this purpose, an image of a hamster was saved in the Pictures folder, which was then targeted for restoration.
 
 ![alt text](image-10.png)
 
-i downloaded the image of the hamster to my pictures folder, and i intended to extract the image through the proxmox webui. or.. in other words.. recover the file.
+The Proxmox Web UI made it possible to browse the backup snapshot, locate the file, and prepare it for recovery.
 
 ![alt text](image-11.png)
 
-after a quick backup.. i used the restore tool to quickly find the file within the directory i was already used to on the windows machine.
+The file was successfully extracted from the backup and restored to its original location, verifying that file-level recovery works as intended.
 
 ![alt text](image-12.png)
 
-
-and here was the hamster..
+The restored hamster image confirmed the success of the procedure.
 
 ![alt text](image-13.png)
