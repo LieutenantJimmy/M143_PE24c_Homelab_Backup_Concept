@@ -54,5 +54,3 @@ The file was successfully extracted from the backup and restored to, verifying t
 ![alt text](image-13.png)
 
 The restored hamster image confirmed the success of the procedure.
-
-![alt text](image-13.png)
