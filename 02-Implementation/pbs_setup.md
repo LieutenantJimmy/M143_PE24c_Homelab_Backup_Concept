@@ -31,3 +31,28 @@ The way i set this up, it not only has TLS (Transit Encryption) but also stores 
 As the backup finished, i continued to restore the VM, i was required to delete the previous one to avoid duplicates from a network perspective, but pretty much worked out of the box.
 
 ![alt text](image-8.png)
+
+
+Now that we tested full VM retore, we'll dedicated to the file restore thankfully proxmox also has this built in and handles it for me. Sadly i had to note that my cluster was on version 8.4.0 which had a bug which made the file restore.. unresponsive.
+
+![alt text](image-9.png)
+
+after a quick apt update && apt dist-upgrade we were back in the game with version 8.4.13 (i slept over some updates)
+
+
+After that i setup a quick test on my personal Domain Controller:
+
+![alt text](image-10.png)
+
+i downloaded the image of the hamster to my pictures folder, and i intended to extract the image through the proxmox webui. or.. in other words.. recover the file.
+
+![alt text](image-11.png)
+
+after a quick backup.. i used the restore tool to quickly find the file within the directory i was already used to on the windows machine.
+
+![alt text](image-12.png)
+
+
+and here was the hamster..
+
+![alt text](image-13.png)
