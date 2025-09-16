@@ -29,7 +29,7 @@ The solution will use a **GFS (Grandfather–Father–Son)** retention policy, t
 - **OptiPlex** (Windows Server 2025 + Hyper‑V): game server VMs, **PBS VM** (backup target on **1 TB HDD**)  
 - **Edge:** Xiaomi 2K Pro cameras (SMB1 recording share)
 
-## Deliverables (aligned with TBZ M143)
+## Deliverables
 - **Concept:** GFS 5‑1‑1 baseline, 3‑2‑1, RPO/RTO per tier, capacity planning
 - **Implementation:** PBS install + datastore, Proxmox backup jobs, Hyper‑V VM exports/agent‑based backups, camera share + nightly mirror
 - **Tests:** full VM restore, file‑level restore, camera‑clip restore (with screenshots and timings)
