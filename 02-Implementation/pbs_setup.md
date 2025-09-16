@@ -38,7 +38,6 @@ As an extra, whenever a backup completes or fails, I receive an email from the s
 
 ![alt text](image-14.png)
 
-
 ---
 
 After confirming that a **full VM restore** worked, the next objective was to test **file-level recovery**. Proxmox provides this functionality natively, though an issue arose during the first attempt: on version **8.4.0**, the file restore feature was unresponsive due to a known bug.
