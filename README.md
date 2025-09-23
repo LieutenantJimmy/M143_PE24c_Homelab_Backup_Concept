@@ -90,7 +90,7 @@ This project implements a comprehensive backup and restore solution for a multi-
 ## Hardware Overview
 
 ### Hypervisor Infrastructure
-![srv-optiplex](image.png)
+![srv-optiplex](image-4.png)
 **Hyper-V Server (Primary Backup Host)**
 - **Model**: Dell OptiPlex Server
 - **OS**: Windows Server 2025
@@ -102,7 +102,7 @@ This project implements a comprehensive backup and restore solution for a multi-
 - **Services**: Hyper-V, Proxmox Backup Server, Veeam Backup & Replication
 
 **Proxmox Cluster Nodes**
-![maccluster](image-1.png)
+![maccluster](image-5.png)
 | Node | Hardware | CPU | RAM | Storage | Role |
 |------|----------|-----|-----|---------|------|
 | **Node 1** | Mac Mini 2012 | i7 Quad-core | 16GB DDR3 | 500GB SATA SSD | Primary Proxmox |
