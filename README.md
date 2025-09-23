@@ -6,7 +6,7 @@ This project implements a comprehensive backup and restore solution for a multi-
 
 ## Module Goals [M143 - ICT-Berufsbildung Schweiz](https://www.modulbaukasten.ch/module/143/3/de-DE?title=Backup--und-Restore-Systeme-implementieren)
 
-**Core Competency**: Create, test, and approve data backup concepts according to given framework conditions.
+**Core Competency**: Design, Implement, and test data backup concepts according to given framework conditions.
 
 ### Learning Objectives Aligned to Project:
 
