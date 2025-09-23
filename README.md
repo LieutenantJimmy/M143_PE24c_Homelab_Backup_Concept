@@ -35,6 +35,6 @@ The solution will use a **GFS (Grandfather–Father–Son)** retention policy, t
 - **Tests:** full VM restore, file‑level restore, camera‑clip restore (with screenshots and timings)
 - **Documentation:** runbooks, configuration snippets, topology/backup diagrams, lessons learned
 
-See [The Concept](/01-Concept/backup_concept.md),[The Proxmox Part](/02-Implementation/pbs_setup.md), [The Hyper-V Part](/02-Implementation/hyperv_setup.md)
+See [The Concept](/01-Concept/backup_concept.md),[The Proxmox Part](/02-Implementation/pbs_setup.md), [The Hyper-V Part](/02-Implementation/hyperv_backups.md)
 
 
