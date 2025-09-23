@@ -1,40 +1,167 @@
-# M143 Backup & Restore – Homelab Project
-![Project Status](https://img.shields.io/badge/Status-In%20Progress-orange) ![License](https://img.shields.io/badge/License-MIT-blue) ![Platform](https://img.shields.io/badge/Platform-HomeLab-yellow)
+![Project Title](image-2.png)
 
+## Project Overview
 
-<img width="991" height="1008" alt="image" src="https://github.com/user-attachments/assets/79feadd1-96b4-48ce-beda-e2848448b386" />
+This project implements a comprehensive backup and restore solution for a multi-hypervisor homelab environment. The system protects approximately 650GB of virtual machines across Proxmox and Hyper-V platforms using industry-standard tools like Veeam and Proxmox Backup Server, with offsite replication to Proton Cloud following the 3-2-1 backup rule.
 
-**Use Case (real-world background)**  
-This project uses an existing homelab that is already in **production use**:
-- A **Proxmox cluster** on two Mac mini servers (“Macmi‑1/2”) runs core infrastructure: **Active Directory**, DNS forwarders, internal/public reverse proxies, and internal/public VPS services.
-- A **Windows Server 2025 (OptiPlex)** host runs multiple **Hyper‑V** game servers and will also host a **Proxmox Backup Server (PBS)** VM with a **dedicated 1 TB HDD** for backup storage.
-- Edge devices include two **Xiaomi 2K Pro** cameras (which can write recordings to a Windows **SMB1** share).
+## Module Goals (M143 - ICT-Berufsbildung Schweiz)
 
-**Current situation / risk**  
-These services are already **in operation without any reliable backups**. A hardware failure, human error, or malware could cause prolonged downtime or data loss (e.g., losing AD, DNS, configuration, or game saves). The goal of this project is to design and implement a **real, working backup & restore system** and to document **tested restore procedures** to meet the TBZ M143 competency matrix.
+**Core Competency**: Create, test, and approve data backup concepts according to given framework conditions.
 
-**Project goal**  
-Design, implement, and document a **complete backup & restore** solution for:
-- **All Proxmox VMs** (Macmi‑1/2) via **Proxmox Backup Server (PBS)** running on the OptiPlex
-- **Hyper‑V VMs** (game servers) exported/snapshotted on the OptiPlex and stored on the same backup disk
-- **Camera recordings** written to a Windows **SMB1** share and mirrored nightly
+### Learning Objectives Aligned to Project:
 
-The solution will use a **GFS (Grandfather–Father–Son)** retention policy, target a **3‑2‑1** strategy, and include **restore proof** (full VM restore, single-file restore, and camera‑clip restore).
+1. **Data Security Concept Development** - Implemented 7-1-1 retention policy with daily backups considering data volumes (~650GB), regulatory requirements, and recovery availability
+2. **Feasibility Assessment** - Validated concept with current hardware limitations and budget constraints (€0 budget requirement)
+3. **Hardware & Storage Planning** - Determined storage requirements across 3 physical disks with cloud backup integration
+4. **Backup Procedures Implementation** - Deployed automated daily backup jobs (02:00-06:00) with Veeam and PBS, integrated into production workflow
+5. **Testing & Validation** - Conducted file-level and full VM restore tests to ensure system reliability
+6. **Documentation & Production Release** - Created comprehensive documentation for productive backup system operation
+
+## Project Structure
+
+```
+/project-backup-homelab
+├── README.md (this file)
+├── /docs
+│   ├── backup-strategy.md          # 7-1-1 retention, 3-2-1 rule, cloud backup
+│   ├── /hardware
+│   │   ├── server-overview.md      # Complete hardware specifications
+│   │   └── network-infrastructure.md # VLAN setup, Ubiquiti network
+│   ├── /backup
+│   │   ├── backup-jobs.md          # Veeam & PBS job configuration
+│   │   └── restore-process.md      # Recovery procedures & testing
+│   ├── /security
+│   │   ├── encryption.md           # TLS, AES-256 encryption
+│   │   └── general-security.md     # Network & storage security
+│   ├── /monitoring
+│   │   └── backup-monitoring.md    # Email alerts & failure handling
+│   └── /future-plans
+│       ├── scaling.md              # Storage & network expansion
+│       └── long-term-retention.md  # Cold storage strategies
+└── LICENSE.md
+```
+
+## Hardware Overview
+
+### Hypervisor Infrastructure
+# Backup & Restore System Implementation - Homelab Project
+
+## Project Overview
+
+This project implements a comprehensive backup and restore solution for a multi-hypervisor homelab environment. The system protects approximately 650GB of virtual machines across Proxmox and Hyper-V platforms using industry-standard tools like Veeam and Proxmox Backup Server, with offsite replication to Proton Cloud following the 3-2-1 backup rule.
+
+## Module Goals (M143 - ICT-Berufsbildung Schweiz)
+
+**Core Competency**: Create, test, and approve data backup concepts according to given framework conditions.
+
+### Learning Objectives Aligned to Project:
+
+1. **Data Security Concept Development** - Implemented 7-1-1 retention policy with daily backups considering data volumes (~650GB), regulatory requirements, and recovery availability
+2. **Feasibility Assessment** - Validated concept with current hardware limitations and budget constraints (€0 budget requirement)
+3. **Hardware & Storage Planning** - Determined storage requirements across 3 physical disks with cloud backup integration
+4. **Backup Procedures Implementation** - Deployed automated daily backup jobs (02:00-06:00) with Veeam and PBS, integrated into production workflow
+5. **Testing & Validation** - Conducted file-level and full VM restore tests to ensure system reliability
+6. **Documentation & Production Release** - Created comprehensive documentation for productive backup system operation
+
+## Project Structure
+
+```
+/project-backup-homelab
+├── README.md (this file)
+├── /docs
+│   ├── backup-strategy.md          # 7-1-1 retention, 3-2-1 rule, cloud backup
+│   ├── /hardware
+│   │   ├── server-overview.md      # Complete hardware specifications
+│   │   └── network-infrastructure.md # VLAN setup, Ubiquiti network
+│   ├── /backup
+│   │   ├── backup-jobs.md          # Veeam & PBS job configuration
+│   │   └── restore-process.md      # Recovery procedures & testing
+│   ├── /security
+│   │   ├── encryption.md           # TLS, AES-256 encryption
+│   │   └── general-security.md     # Network & storage security
+│   ├── /monitoring
+│   │   └── backup-monitoring.md    # Email alerts & failure handling
+│   └── /future-plans
+│       ├── scaling.md              # Storage & network expansion
+│       └── long-term-retention.md  # Cold storage strategies
+└── LICENSE.md
+```
+
+## Hardware Overview
+
+### Hypervisor Infrastructure
+![srv-optiplex](image.png)
+**Hyper-V Server (Primary Backup Host)**
+- **Model**: Dell OptiPlex Server
+- **OS**: Windows Server 2025
+- **RAM**: 64GB DDR4
+- **Storage**: 
+  - 1TB NVMe SSD (C:/) - System & primary backups
+  - 1TB SATA HDD (B:/) - Secondary backup storage (failing - CRC errors)
+  - 1TB USB HDD - Additional backup storage
+- **Services**: Hyper-V, Proxmox Backup Server, Veeam Backup & Replication
+
+**Proxmox Cluster Nodes**
+![maccluster](image-1.png)
+| Node | Hardware | CPU | RAM | Storage | Role |
+|------|----------|-----|-----|---------|------|
+| **Node 1** | Mac Mini 2012 | i7 Quad-core | 16GB DDR3 | 500GB SATA SSD | Primary Proxmox |
+| **Node 2** | Mac Mini 2012 | i5 Dual-core | 8GB DDR3 | 256GB SATA SSD | Secondary Proxmox |
+| **Node 3** | MacBook Pro 2019 | i7 Quad-core | 8GB DDR3 | 500GB Internal SSD | Cluster Extension |
+
+**Data Volumes**:
+- Proxmox VMs: ~350GB
+- Hyper-V VMs: ~300GB
+- **Total Protected Data**: ~650GB
+
+**Network**: Ubiquiti-based infrastructure with Internal VLAN and DMZ VLAN separation, WireGuard VPN access via Cloud Gateway.
+
+## Key Technologies
+
+- **Backup Software**: Veeam Backup & Replication, Proxmox Backup Server
+- **Virtualization**: Microsoft Hyper-V, Proxmox VE
+- **Cloud Storage**: Proton Drive (offsite backup)
+- **Encryption**: Built-in Veeam and PBS encryption with TLS transport
+- **Retention**: 7-1-1 policy (7 daily, 1 weekly, 1 monthly)
 
 ---
 
-## Environment
-- **Macmi‑1** (Proxmox 8): AD‑1, netvps‑1, pubvps‑1 (OS+data), nginx‑ext, nginx‑int  
-- **Macmi‑2** (Proxmox 8): AD‑2, netvps‑2 (redundant core services)  
-- **OptiPlex** (Windows Server 2025 + Hyper‑V): game server VMs, **PBS VM** (backup target on **1 TB HDD**)  
-- **Edge:** Xiaomi 2K Pro cameras (SMB1 recording share)
+*Project developed for TBZ Technische Berufsschule Zürich, IT-PE24c*  
+*Module 143: Backup- und Restore-Systeme implementieren*
+**Hyper-V Server (Primary Backup Host)**
+- **Model**: Dell OptiPlex Server
+- **OS**: Windows Server 2025
+- **RAM**: 64GB DDR4
+- **Storage**: 
+  - 1TB NVMe SSD (C:/) - System & primary backups
+  - 1TB SATA HDD (B:/) - Secondary backup storage (failing - CRC errors)
+  - 1TB USB HDD - Additional backup storage
+- **Services**: Hyper-V, Proxmox Backup Server, Veeam Backup & Replication
 
-## Deliverables
-- **Concept:** GFS 5‑1‑1 baseline, 3‑2‑1, RPO/RTO per tier, capacity planning
-- **Implementation:** PBS install + datastore, Proxmox backup jobs, Hyper‑V VM exports/agent‑based backups, camera share + nightly mirror
-- **Tests:** full VM restore, file‑level restore, camera‑clip restore (with screenshots and timings)
-- **Documentation:** runbooks, configuration snippets, topology/backup diagrams, lessons learned
+**Proxmox Cluster Nodes**
 
-See [The Concept](/01-Concept/backup_concept.md),[The Proxmox Part](/02-Implementation/pbs_setup.md), [The Hyper-V Part](/02-Implementation/hyperv_backups.md)
+| Node | Hardware | CPU | RAM | Storage | Role |
+|------|----------|-----|-----|---------|------|
+| **Node 1** | Mac Mini 2012 | i7 Quad-core | 16GB DDR3 | 500GB SATA SSD | Primary Proxmox |
+| **Node 2** | Mac Mini 2012 | i5 Dual-core | 8GB DDR3 | 256GB SATA SSD | Secondary Proxmox |
+| **Node 3** | MacBook Pro 2019 | i5 Quad-core | 8GB DDR3 | 500GB Internal SSD | Cluster Extension |
 
+**Data Volumes**:
+- Proxmox VMs: ~350GB
+- Hyper-V VMs: ~300GB
+- **Total Protected Data**: ~650GB
 
+**Network**: Ubiquiti-based infrastructure with Internal VLAN and DMZ VLAN separation, WireGuard VPN access via Cloud Gateway.
+
+## Key Technologies
+
+- **Backup Software**: Veeam Backup & Replication, Proxmox Backup Server
+- **Virtualization**: Microsoft Hyper-V, Proxmox VE
+- **Cloud Storage**: Proton Drive (offsite backup)
+- **Encryption**: Built-in Veeam and PBS encryption with TLS transport
+- **Retention**: 7-1-1 policy (7 daily, 1 weekly, 1 monthly)
+
+---
+
+*Project developed for TBZ Technische Berufsschule Zürich, IT-PE24c*  
+*Module 143: Backup- und Restore-Systeme implementieren*
