@@ -58,7 +58,7 @@
   - service-ad-2 (48GB) - Secondary domain controller
 
 **Node 3 (macmi-pve-53)** - Expansion Node
-- **Hardware**: MacBook Pro 2019, i7 Quad-core, 8GB RAM, 500GB SSD
+- **Hardware**: MacBook Pro 2019, i5 Quad-core, 8GB RAM, 500GB SSD
 - **Services**:
   - vm-ubuntu (~16GB) - Test/development environment
 - **Status**: Mostly unused, available for expansion
