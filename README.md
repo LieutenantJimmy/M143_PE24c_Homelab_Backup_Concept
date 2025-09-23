@@ -59,9 +59,9 @@ This project implements a comprehensive backup and restore solution for a multi-
 ![maccluster](image-5.png)
 | Node | Hardware | CPU | RAM | Storage | Role |
 |------|----------|-----|-----|---------|------|
-| **Node 1** | Mac Mini 2012 | i7 Quad-core | 16GB DDR3 | 500GB SATA SSD | Primary Proxmox |
+| **Node 1** | Mac Mini 2012 | i7 Quad-core | 16GB DDR3 | 512GB SATA SSD | Primary Proxmox |
 | **Node 2** | Mac Mini 2012 | i5 Dual-core | 8GB DDR3 | 256GB SATA SSD | Secondary Proxmox |
-| **Node 3** | MacBook Pro 2019 | i7 Quad-core | 8GB DDR3 | 500GB Internal SSD | Cluster Extension |
+| **Node 3** | MacBook Pro 2019 | i5 Quad-core | 8GB DDR3 | 512GB Internal SSD | Cluster Extension |
 
 **Data Volumes**:
 - Proxmox VMs: ~350GB
