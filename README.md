@@ -20,7 +20,9 @@ This project implements a comprehensive backup and restore solution for a multi-
 ## Project Structure
 
 ![README file](README.md)
-![Backup Concept](/docs/backup-strategy.md)
+![Backup Concept](/Docs/backup-strategy.md)
+![Restore Process](/Docs/restore-process.md)
+
 
 ## Hardware Overview
 
