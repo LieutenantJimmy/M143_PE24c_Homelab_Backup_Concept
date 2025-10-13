@@ -19,7 +19,8 @@ This project implements a comprehensive backup and restore solution for a multi-
 
 ## Project Structure
 
-![Readme](README.md)
+![README file](README.md)
+![README file](/docs/backup-strategy.md)
 
 ## Hardware Overview
 
