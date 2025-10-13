@@ -283,12 +283,6 @@ This approach provides encrypted, secure offsite backup storage while maintainin
 - **Both Platforms**: Meet defined RPO/RTO targets for all service tiers
 - **Reliability**: No restore failures encountered during testing
 
-### Operational Recommendations
-1. **Prefer Veeam for File Recovery**: Direct VM integration provides better user experience
-2. **Monitor Hardware Health**: Replace failing B: drive before critical failure
-3. **Test Recovery Regularly**: Validate backup integrity through periodic restore tests
-4. **Document Dependencies**: Maintain current hardware and software version information
-
 ---
 *Last Updated: September 2025*  
 *Testing completed for M143: Backup- und Restore-Systeme implementieren*
