@@ -20,25 +20,7 @@ This project implements a comprehensive backup and restore solution for a multi-
 ## Project Structure
 
 ```
-/project-backup-homelab
-├── README.md (this file)
-├── /docs
-│   ├── backup-strategy.md          # 7-1-1 retention, 3-2-1 rule, cloud backup
-│   ├── /hardware
-│   │   ├── server-overview.md      # Complete hardware specifications
-│   │   └── network-infrastructure.md # VLAN setup, Ubiquiti network
-│   ├── /backup
-│   │   ├── backup-jobs.md          # Veeam & PBS job configuration
-│   │   └── restore-process.md      # Recovery procedures & testing
-│   ├── /security
-│   │   ├── encryption.md           # TLS, AES-256 encryption
-│   │   └── general-security.md     # Network & storage security
-│   ├── /monitoring
-│   │   └── backup-monitoring.md    # Email alerts & failure handling
-│   └── /future-plans
-│       ├── scaling.md              # Storage & network expansion
-│       └── long-term-retention.md  # Cold storage strategies
-└── LICENSE.md
+![Readme](README.md)
 ```
 
 ## Hardware Overview
