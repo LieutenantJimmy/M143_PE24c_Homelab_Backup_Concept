@@ -237,15 +237,10 @@ To provide a realistic restore scenario, the service-zomboid VM was completely d
 
 ### Local Redundancy (3-2-1 Strategy - Second Medium)
 
-![PBS storage expansion with additional datastore](image-15.png)
-
 To comply with the 3-2-1 backup strategy, specifically the *two media* requirement, the Proxmox Backup Server (PBS) was extended with an additional storage medium.
 
-![Physical disk configuration showing dual datastores](image-17.png)
 
 A 1TB HDD was physically attached to the host server, and an additional 512GB virtual disk (.vhdx) was assigned to the PBS VM. This resulted in two independent datastores of equal size (512GB each).
-
-![PBS datastore configuration interface](image-16.png)
 
 Both datastores were integrated into PBS with a Local Sync Job created to replicate the contents of Datastore1 onto Datastore2.
 
