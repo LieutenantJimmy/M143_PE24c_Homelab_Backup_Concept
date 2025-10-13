@@ -19,9 +19,7 @@ This project implements a comprehensive backup and restore solution for a multi-
 
 ## Project Structure
 
-```
 ![Readme](README.md)
-```
 
 ## Hardware Overview
 
