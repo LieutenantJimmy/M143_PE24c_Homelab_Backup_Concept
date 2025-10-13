@@ -1,5 +1,6 @@
-# Backup Restore Process
 ![Title](image-4.png)
+
+# Backup Restore Process
 
 ## Overview
 
@@ -23,8 +24,6 @@ This document outlines the restore procedures for both Proxmox (PBS) and Hyper-V
 
 #### Test Setup
 Before initiating the backup, a deliberate modification was made inside the VM to validate the restore process accuracy.
-
-![Service modification in CasaOS interface for testing](image-4.png)
 
 Inside one of the services hosted on netvps-1 (running CasaOS & Docker), the name of an item was intentionally changed. After applying this modification, the VM was shut down, and a backup was performed using Proxmox's integrated backup functionality, with the target set to PBS running on Hyper-V.
 
