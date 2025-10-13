@@ -37,11 +37,7 @@ Inside one of the services hosted on netvps-1 (running CasaOS & Docker), the nam
    - Verify storage target has adequate space
    - Confirm network configuration to avoid conflicts
 
-![Proxmox backup configuration with TLS encryption](image-5.png)
-
 6. **Execute Restore** → Monitor progress via Proxmox task viewer
-
-![Completed VM restore in Proxmox interface](image-7.png)
 
 **Tested Results**: Full VM restoration completed successfully with all services intact. CasaOS configuration and Docker containers restored to exact pre-backup state.
 
