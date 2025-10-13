@@ -12,8 +12,8 @@ This project implements a comprehensive backup and restore solution for a multi-
 
 1. **Data Security Concept Development** - Implemented 7-1-1 retention policy with daily backups considering data volumes (~650GB), regulatory requirements, and recovery availability
 2. **Feasibility Assessment** - Validated concept with current hardware limitations and budget constraints (€0 budget requirement)
-3. **Hardware & Storage Planning** - Determined storage requirements across 3 physical disks with cloud backup integration
-4. **Backup Procedures Implementation** - Deployed automated daily backup jobs (02:00-06:00) with Veeam and PBS, integrated into production workflow
+3. **Hardware & Storage Planning** - Determined storage requirements across 2 physical disks with "cloud" backup integration
+4. **Backup Procedures Implementation** - Deployed automated daily backup jobs (between 02:00-06:00) with Veeam and PBS.
 5. **Testing & Validation** - Conducted file-level and full VM restore tests to ensure system reliability
 6. **Documentation & Production Release** - Created comprehensive documentation for productive backup system operation
 
