@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project implements a comprehensive backup and restore solution for a multi-hypervisor homelab environment. The system protects approximately 650GB of virtual machines across Proxmox and Hyper-V platforms using industry-standard tools like Veeam and Proxmox Backup Server, with offsite replication to Proton Cloud following the 3-2-1 backup rule.
+This project implements a comprehensive backup and restore solution for a multi-hypervisor homelab environment. The system protects approximately 650GB of virtual machines across Proxmox and Hyper-V platforms using industry-standard tools like Veeam and Proxmox Backup Server, with offsite replication to Proton Drive following the 3-2-1 backup rule.
 
 ## Module Goals [M143 - ICT-Berufsbildung Schweiz](https://www.modulbaukasten.ch/module/143/3/de-DE?title=Backup--und-Restore-Systeme-implementieren)
 
