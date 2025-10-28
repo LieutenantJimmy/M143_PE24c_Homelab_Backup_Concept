@@ -39,6 +39,8 @@
 | **service-nginx** | High | Public reverse proxy | 24h | 24h | ~12GB |
 | **vm-ubuntu** | Low | Test/development VM | 24h | 48h | ~16GB |
 
+*Note: VMs were categorized by criticallity to the Network and or HomeLab, Critical/High Priority tier may cause a Ripple effect and take down the entire network and or has failover replacement.
+
 ## Current Infrastructure Overview
 
 ### Active Nodes & Services
