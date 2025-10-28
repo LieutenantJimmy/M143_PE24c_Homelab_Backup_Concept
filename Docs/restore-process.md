@@ -2,7 +2,7 @@
 
 # Backup Restore Process
 
-![Return to Readme File](~/README.md)
+![Return to Readme File](../README.md)
 
 ## Overview
 
