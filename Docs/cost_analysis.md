@@ -1,4 +1,6 @@
 # Cost Analysis
+![Return to Readme File](../README.md)
+
 ## Summary
 This cost analysis provides a detailed breakdown of the finances in the compute and networking infrastructure for the described Proxmox cluster and supporting systems. The project leverages a mix of used hardware acquisitions, including budget-friendly deals from friends, and some factory new purchased eqquiptment. Software components are mostly open-source or free-tier, resulting in no additional licensing expenses.
 
